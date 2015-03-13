@@ -1,0 +1,18 @@
+name: Logoutput
+key: Logoutput
+author_link: http://blog.rmasco.com/
+author_name: rmasco
+description: <MT_TRANS phrase='Movable Type Log output file.'>
+version: 1.0
+l10n_class: Logoutput::L10N
+
+callbacks:
+    MT::Log::post_save:  |
+        sub {
+            require utf8;
+            my ($eh, $obj, $original) = @_;
+            open(FILE, ">> /tmp/mt_log.txt") or die("Error:$!");
+            print FILE $obj->created_on.','.$obj->message()."\n";
+            close FILE; 
+        }
+
