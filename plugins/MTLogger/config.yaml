@@ -1,0 +1,15 @@
+name: MTLogger
+key: MTLogger
+author_link: http://blog.rmasco.com/
+author_name: rmasco
+description: <MT_TRANS phrase='Movable Type Log output file.'>
+version: 1.0
+
+config_settings:
+    LoggerFilePath:
+        handler: $MTLogger::MTLogger::CMS::loggerfilepath
+    LoggerFileFormat:
+        default: 
+
+callbacks:
+    MT::Log::post_save: $MTLogger::MTLogger::CMS::output
