@@ -1,0 +1,10 @@
+name: Log4mt
+key: Log4mt
+author_link: http://blog.rmasco.com/
+author_name: rmasco
+description: 'Movable Type Log output file'
+version: 1.0
+
+callbacks:
+    MT::Log::pre_save: $Log4mt::Log4mt::CMS::output
+
